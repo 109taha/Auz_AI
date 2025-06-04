@@ -11,8 +11,15 @@ const Speech = () => {
   const navigate = useNavigate();
 
   const toggleRecording = () => {
-    setIsRecording(!isRecording);
-    setShowMessage(false);
+    if (isRecording) {
+      // Stop recording and go to analyzing page
+      setIsRecording(false);
+      navigate('/analyzing');
+    } else {
+      // Start recording
+      setIsRecording(true);
+      setShowMessage(false);
+    }
   };
 
   return (

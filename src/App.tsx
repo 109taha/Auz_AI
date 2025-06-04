@@ -8,6 +8,8 @@ import Index from "./pages/Index";
 import SignIn from "./pages/SignIn";
 import Welcome from "./pages/Welcome";
 import Speech from "./pages/Speech";
+import AnalyzingSpeech from "./pages/AnalyzingSpeech";
+import AssessmentResult from "./pages/AssessmentResult";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,6 +25,8 @@ const App = () => (
           <Route path="/signin" element={<SignIn />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/speech" element={<Speech />} />
+          <Route path="/analyzing" element={<AnalyzingSpeech />} />
+          <Route path="/result" element={<AssessmentResult />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
