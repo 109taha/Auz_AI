@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
@@ -26,16 +25,16 @@ const Speech = () => {
     <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-4">
       <div className="container mx-auto max-w-2xl">
         {/* Header */}
-        <div className="flex items-center text-white mb-8 pt-8">
+        <div className="flex items-center justify-between text-white mb-8 pt-8">
+          <h1 className="text-2xl font-bold">Speech Assessment</h1>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => navigate('/welcome')}
-            className="text-white hover:bg-white/10 mr-4"
+            className="text-white hover:bg-white/10"
           >
             <ArrowLeft className="w-4 h-4" />
           </Button>
-          <h1 className="text-2xl font-bold">Speech Assessment</h1>
         </div>
 
         <div className="text-center">
