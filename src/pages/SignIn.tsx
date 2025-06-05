@@ -6,6 +6,8 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { User } from "lucide-react";
+import { theme } from "@/theme";
+import Header from "@/components/Header";
 
 const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -19,8 +21,10 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-4">
-      <Card className="w-full max-w-md bg-white shadow-2xl">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: theme.background.primary }}>
+      <Header />
+      <div className="flex-1 flex items-center justify-center p-4">
+        <Card className="w-full max-w-md bg-white shadow-2xl">
         <CardHeader className="text-center pb-4">
           <div className="mx-auto w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4">
             <User className="w-8 h-8 text-blue-600" />
@@ -72,11 +76,12 @@ const SignIn = () => {
 
           <div className="text-center pt-4">
             <p className="text-sm text-gray-600">
-              Don't have an account? <a href="#" className="text-blue-600 hover:underline">Sign up here</a>
+              Don't have an account? <a href="#" className=" hover:underline" style={{ color: theme.colors.tertiary }}>Contact your administrator</a>
             </p>
           </div>
         </CardContent>
       </Card>
+      </div>
     </div>
   );
 };

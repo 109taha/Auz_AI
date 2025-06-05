@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { CheckCircle, AlertTriangle, Target, ArrowRight, User } from "lucide-react";
+import { theme } from "@/theme";
+import Header from "@/components/Header";
 
 const AssessmentResult = () => {
   const navigate = useNavigate();
@@ -26,8 +28,13 @@ const AssessmentResult = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-400 via-blue-500 to-blue-600 p-4">
-      <div className="container mx-auto max-w-2xl">
+    <div className="min-h-screen flex flex-col" style={{ backgroundColor: theme.background.primary }}>
+      <Header 
+        showBackButton={true} 
+        onBackClick={() => navigate('/speech')} 
+      />
+      <div className="flex-1 p-4">
+        <div className="container mx-auto max-w-2xl">
         <div className="text-center text-white mb-8 pt-8">
           {/* Profile icon */}
           <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -40,22 +47,22 @@ const AssessmentResult = () => {
         <div className="space-y-4 mb-8">
           {/* Feedback Cards */}
           {feedbackItems.map((item, index) => (
-            <Card key={index} className="bg-white/90 backdrop-blur-sm p-4">
+            <Card key={index} className="bg-[#3b6080]  backdrop-blur-sm p-4">
               <div className="flex items-center space-x-3">
                 {item.icon}
-                <p className="text-gray-800 flex-1">{item.text}</p>
+                <p className="text-white flex-1">{item.text}</p>
               </div>
             </Card>
           ))}
 
           {/* Course Assignment Card */}
-          <Card className="bg-white/90 backdrop-blur-sm p-4">
+          <Card className="bg-[#3b6080] text-white backdrop-blur-sm p-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
                 <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
                   <User className="w-4 h-4 text-blue-600" />
                 </div>
-                <span className="text-gray-800 font-medium">Assigned Course: Confidence in Sales</span>
+                <span className="text-white font-medium">Assigned Course: Confidence in Sales</span>
               </div>
               <div className="flex items-center space-x-2">
                 <ArrowRight className="w-4 h-4 text-gray-600" />
@@ -87,6 +94,7 @@ const AssessmentResult = () => {
               View Assigned Course
             </Button>
           </div>
+        </div>
         </div>
       </div>
     </div>
