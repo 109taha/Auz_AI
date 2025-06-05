@@ -17,7 +17,7 @@ const AssessmentResult = () => {
     },
     {
       icon: <AlertTriangle className="w-5 h-5 text-yellow-500" />,
-      text: "You used 12 filler words like 'um', 'like'",
+      text: "You used 2 filler words like 'um', 'like'",
       type: "warning"
     },
     {

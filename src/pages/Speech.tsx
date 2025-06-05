@@ -496,7 +496,7 @@ const Speech = () => {
       <div className="flex-1 p-4">
         <div className="container">
           {/* Header */}
-          <div className="flex justify-between items-center text-white mb-8 pt-8">
+          <div className="flex justify-between items-center text-white mb-8 pt-4">
             <div className="flex items-center gap-2">
               <Button
                 variant="ghost"
@@ -591,30 +591,17 @@ const Speech = () => {
                   }, 2000);
                 }
               }}
-              className="bg-red-600 hover:bg-red-800 rounded-full text-white"
+              className="bg-red-600 hover:bg-red-800 hover:text-white rounded-full text-white border-red-400"
               disabled={isPlaying}
             >
               End Assessment
             </Button>
           </div>
 
-          <div className="flex w-[100%] gap-6">
+          <div className="flex w-[100%] gap-6  items-center justify-center">
             {/* Left Column - Recording Interface */}
             <div className="text-center flex-1 p-4">
-              {/* Message Card */}
-              {/* {showMessage && (
-                <Card className="bg-white/90 backdrop-blur-sm p-6 mb-8 mx-auto max-w-md">
-                  <div className="flex items-start space-x-3">
-                    <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center mt-1">
-                      <div className="w-3 h-3 bg-blue-600 rounded-full"></div>
-                    </div>
-                    <p className="text-gray-800 text-left">
-                      Hi, I'm here to help improve your speaking skills.
-                    </p>
-                  </div>
-                </Card>
-              )} */}
-
+              
               {/* Microphone Button */}
               <div className="mb-8">
                 <Button
@@ -646,32 +633,7 @@ const Speech = () => {
                     isRecording ? 'Speak clearly into your device' :
                       isPlaying ? 'Please wait while audio plays' : 'Click to record your response'}
                 </p>
-
-                {!isRecording && !isPlaying && simulationStarted && (
-                  <div className="space-y-2">
-                    <div className="text-sm text-white/70">
-                      {currentAudio && <span>Now playing: {currentAudio}</span>}
-                    </div>
-                    <Button
-                      variant="outline"
-                      className="bg-white/10 border-white/30 text-white hover:bg-white/20"
-                      onClick={() => navigate('/welcome')}
-                    >
-                      Back to Assessment
-                    </Button>
-                  </div>
-                )}
               </div>
-
-              {/* Recording Indicator */}
-              {/* {isRecording && (
-                <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2">
-                  <div className="bg-red-500 text-white px-4 py-2 rounded-full flex items-center space-x-2">
-                    <div className="w-3 h-3 bg-white rounded-full animate-pulse"></div>
-                    <span className="font-semibold">Recording</span>
-                  </div>
-                </div>
-              )} */}
             </div>
 
             {/* Right Column - Conversation Interface */}

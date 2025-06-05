@@ -5,9 +5,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { User, Calendar, GraduationCap } from "lucide-react";
 import { theme } from "@/theme";
 import Header from "@/components/Header";
+import { useAuth } from "@/context/AuthContext";
 
 const Welcome = () => {
   const navigate = useNavigate();
+  const { user } = useAuth();
 
   const handleStartAssessment = () => {
     navigate('/speech');
@@ -16,7 +18,7 @@ const Welcome = () => {
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: theme.background.primary }}>
       <Header />
-      <div className="flex-1 p-4">
+      <div className="flex-1 p-4 flex items-center justify-center">
       <div className="container mx-auto max-w-4xl">
         {/* Header */}
         {/* <div className="text-center text-white mb-8 pt-8">
@@ -38,7 +40,7 @@ const Welcome = () => {
                 <User className="w-5 h-5 text-blue-600" />
                 <div>
                   <p className="text-sm text-gray-600">Name</p>
-                  <p className="font-semibold text-gray-800">Alex Johnson</p>
+                  <p className="font-semibold text-gray-800">{user?.name || 'Guest User'}</p>
                 </div>
               </div>
               
@@ -46,7 +48,7 @@ const Welcome = () => {
                 <GraduationCap className="w-5 h-5 text-blue-600" />
                 <div>
                   <p className="text-sm text-gray-600">Status</p>
-                  <p className="font-semibold text-gray-800">STUDENT</p>
+                  <p className="font-semibold text-gray-800">{user?.role?.toUpperCase() || 'GUEST'}</p>
                 </div>
               </div>
               
@@ -54,7 +56,15 @@ const Welcome = () => {
                 <Calendar className="w-5 h-5 text-blue-600" />
                 <div>
                   <p className="text-sm text-gray-600">Date</p>
-                  <p className="font-semibold text-gray-800">December 26, 2024</p>
+                  <p className="font-semibold text-gray-800">{new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</p>
+                </div>
+              </div>
+              
+              <div className="flex items-center space-x-3">
+                <User className="w-5 h-5 text-blue-600" />
+                <div>
+                  <p className="text-sm text-gray-600">Email</p>
+                  <p className="font-semibold text-gray-800 text-sm">{user?.email || 'guest@example.com'}</p>
                 </div>
               </div>
             </CardContent>
